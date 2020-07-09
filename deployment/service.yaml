@@ -6,7 +6,7 @@ metadata:
     run: simple-node-app
 spec:
   ports:
-  - port: 80
-    protocol: TCP
+    - port: 80
+      protocol: TCP
   selector:
     run: simple-node-app
