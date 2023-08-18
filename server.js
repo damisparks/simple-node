@@ -1,12 +1,14 @@
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const http = require('http');
 
-async function main() {
-  while(true) {
-    console.log('Containers rule!');
-    await sleep(5000);
-  }
-}
+const hostname = '0.0.0.0';
+const port = 80;
 
-main();
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
